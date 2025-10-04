@@ -236,7 +236,11 @@ jobs:
       if: github.ref == 'refs/heads/master'
       uses: actions/upload-pages-artifact@v3
       with:
-        path: '.'
+        path: |
+          index.html
+          models/
+          LICENSE
+          README.md
         
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/master'
