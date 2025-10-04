@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linear Regression - PyTorch Project</title>
+    <title>Linear Regression - PyTorch Model</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -128,6 +128,13 @@
             text-decoration: underline;
             color: white;
         }
+        .code-block {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #007bff;
+        }
         @media (max-width: 768px) {
             .header h1 { font-size: 2em; }
             .status-badges { flex-direction: column; align-items: center; }
@@ -137,7 +144,7 @@
 </head>
 <body>
     <div class="container">
-        <a href="../index.html" class="back-link">← Back to Portfolio</a>
+        <a href="../../index.html" class="back-link">← Back to All Models</a>
         
         <div class="header">
             <h1>📈 Linear Regression</h1>
@@ -146,7 +153,7 @@
 
         <div class="card">
             <div class="status-badges">
-                <a href="https://github.com/mimitheone/PyTorch" class="badge badge-primary">📁 Source Code</a>
+                <a href="https://github.com/mimitheone/PyTorch/tree/master/models/linear-regression" class="badge badge-primary">📁 Source Code</a>
                 <a href="https://github.com/mimitheone/PyTorch/actions" class="badge badge-success">✅ CI/CD Status</a>
                 <a href="https://github.com/mimitheone/PyTorch/issues" class="badge badge-info">🐛 Issues</a>
                 <a href="https://github.com/mimitheone/PyTorch/stargazers" class="badge badge-warning">⭐ Stars</a>
@@ -192,27 +199,62 @@
         </div>
 
         <div class="cta">
-            <a href="https://github.com/mimitheone/PyTorch" class="btn">📥 Clone Repository</a>
-            <a href="https://github.com/mimitheone/PyTorch/blob/master/README.md" class="btn btn-secondary">📖 Read Documentation</a>
+            <a href="https://github.com/mimitheone/PyTorch/tree/master/models/linear-regression" class="btn">📥 View Source Code</a>
+            <a href="https://github.com/mimitheone/PyTorch/blob/master/models/linear-regression/README.md" class="btn btn-secondary">📖 Read Documentation</a>
         </div>
 
         <div class="card">
             <h2>🛠️ Quick Start</h2>
-            <pre style="background: #f8f9fa; padding: 15px; border-radius: 5px; overflow-x: auto;">
-<code># Clone the repository
-git clone https://github.com/mimitheone/PyTorch.git
-cd PyTorch
+            <div class="code-block">
+<code># Navigate to the model directory
+cd models/linear-regression
 
 # Install dependencies
 pip install -r requirements.txt
 
 # Run the linear regression model
-python simple_linear_regression.py</code></pre>
+python simple_linear_regression.py</code>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🧠 How It Works</h2>
+            <h3>1. Data Generation</h3>
+            <div class="code-block">
+<code>X = torch.linspace(0, 10, 100).reshape(-1, 1)  # Input data
+y = 2*X + 3 + noise                             # Target values with noise</code>
+            </div>
+            
+            <h3>2. Model Definition</h3>
+            <div class="code-block">
+<code>class SimpleLinearModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.linear = nn.Linear(1, 1)  # y = wx + b
+    
+    def forward(self, x):
+        return self.linear(x)</code>
+            </div>
+            
+            <h3>3. Training Loop</h3>
+            <div class="code-block">
+<code>criterion = nn.MSELoss()                    # Loss function
+optimizer = optim.SGD(model.parameters(), lr=0.01)  # Optimizer
+
+for epoch in range(1000):
+    predictions = model(X)
+    loss = criterion(predictions, y)
+    
+    optimizer.zero_grad()  # Zero gradients
+    loss.backward()        # Backpropagation
+    optimizer.step()       # Update parameters</code>
+            </div>
         </div>
 
         <div class="footer">
             <p>Made with ❤️ for learning PyTorch and machine learning</p>
             <p>Automatically deployed with GitHub Actions</p>
+            <p><a href="https://github.com/mimitheone" style="color: white;">@mimitheone</a> on GitHub</p>
         </div>
     </div>
 </body>
