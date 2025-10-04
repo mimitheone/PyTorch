@@ -35,11 +35,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r models/linear-regression/requirements.txt
         pip install pytest pytest-html
         
     - name: Run tests
       run: |
+        cd models/linear-regression
         python -c "
         import torch
         import numpy as np
@@ -81,6 +82,7 @@ jobs:
         
     - name: Generate HTML Report
       run: |
+        cd models/linear-regression
         python -c "
         import torch
         import numpy as np
