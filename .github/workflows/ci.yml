@@ -223,11 +223,12 @@ jobs:
           report.html
           loss_curve.png
           
-    - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/master'
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./
-        publish_branch: gh-pages
-        keep_files: true
+    # GitHub Pages deployment - requires manual setup in repository settings
+    # - name: Deploy to GitHub Pages
+    #   if: github.ref == 'refs/heads/master'
+    #   uses: peaceiris/actions-gh-pages@v4
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     publish_dir: ./
+    #     publish_branch: gh-pages
+    #     keep_files: true
