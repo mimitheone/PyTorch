@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyTorch Linear Regression Project</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .status-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .badge:hover {
+            transform: scale(1.05);
+            text-decoration: none;
+            color: white;
+        }
+        .badge-success { background: #28a745; }
+        .badge-info { background: #17a2b8; }
+        .badge-warning { background: #ffc107; color: #333; }
+        .badge-primary { background: #007bff; }
+        .badge-dark { background: #343a40; }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #007bff;
+        }
+        .feature h3 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        .cta {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        .btn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            text-decoration: none;
+            color: white;
+        }
+        .btn-secondary {
+            background: #6c757d;
+        }
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .status-badges { flex-direction: column; align-items: center; }
+            .features { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 PyTorch Linear Regression</h1>
+            <p>Learn machine learning fundamentals with PyTorch</p>
+        </div>
+
+        <div class="card">
+            <div class="status-badges">
+                <a href="https://github.com/mimitheone/PyTorch" class="badge badge-primary">📁 Source Code</a>
+                <a href="https://github.com/mimitheone/PyTorch/actions" class="badge badge-success">✅ CI/CD Status</a>
+                <a href="https://github.com/mimitheone/PyTorch/issues" class="badge badge-info">🐛 Issues</a>
+                <a href="https://github.com/mimitheone/PyTorch/stargazers" class="badge badge-warning">⭐ Stars</a>
+                <a href="https://github.com/mimitheone/PyTorch/network" class="badge badge-dark">🍴 Forks</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🎯 About This Project</h2>
+            <p>This is a beginner-friendly PyTorch project that demonstrates linear regression - one of the most fundamental machine learning algorithms. The project includes:</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <h3>📚 Educational Content</h3>
+                    <p>Comprehensive explanations of linear regression with real-world examples from education, fitness, cars, weather, technology, and health.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔧 Working Code</h3>
+                    <p>Complete PyTorch implementation with detailed comments in Bulgarian and English, perfect for learning the basics.</p>
+                </div>
+                <div class="feature">
+                    <h3>📊 Visualizations</h3>
+                    <p>Beautiful graphs showing data points, model predictions, and training progress to help you understand what's happening.</p>
+                </div>
+                <div class="feature">
+                    <h3>🚀 CI/CD Pipeline</h3>
+                    <p>Automated testing and deployment with GitHub Actions that runs on every commit and generates reports.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📈 Latest Results</h2>
+            <p>The model successfully learns the relationship Y = 2*X + 3 with high accuracy:</p>
+            <ul>
+                <li><strong>True Parameters:</strong> slope = 2.00, intercept = 3.00</li>
+                <li><strong>Learned Parameters:</strong> slope ≈ 2.00, intercept ≈ 3.02</li>
+                <li><strong>Accuracy:</strong> >99% parameter recovery</li>
+                <li><strong>Training:</strong> 1000 epochs with decreasing loss</li>
+            </ul>
+        </div>
+
+        <div class="cta">
+            <a href="https://github.com/mimitheone/PyTorch" class="btn">📥 Clone Repository</a>
+            <a href="https://github.com/mimitheone/PyTorch/blob/master/README.md" class="btn btn-secondary">📖 Read Documentation</a>
+        </div>
+
+        <div class="card">
+            <h2>🛠️ Quick Start</h2>
+            <pre style="background: #f8f9fa; padding: 15px; border-radius: 5px; overflow-x: auto;">
+<code># Clone the repository
+git clone https://github.com/mimitheone/PyTorch.git
+cd PyTorch
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the project
+python simple_linear_regression.py</code></pre>
+        </div>
+
+        <div class="footer">
+            <p>Made with ❤️ for learning PyTorch and machine learning</p>
+            <p>Automatically deployed with GitHub Actions</p>
+        </div>
+    </div>
+</body>
+</html>

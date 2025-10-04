@@ -1,5 +1,12 @@
 # First PyTorch Project 🚀
 
+[![CI/CD](https://github.com/mimitheone/PyTorch/workflows/PyTorch%20Linear%20Regression%20CI/CD/badge.svg)](https://github.com/mimitheone/PyTorch/actions)
+[![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-red.svg)](https://pytorch.org/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen.svg)](https://mimitheone.github.io/PyTorch/)
+[![Code Quality](https://img.shields.io/badge/code%20quality-A-brightgreen.svg)](https://github.com/mimitheone/PyTorch)
+
 This is an elementary project for PyTorch beginners that demonstrates the fundamentals of machine learning through linear regression.
 
 ## What is Linear Regression?
@@ -152,6 +159,28 @@ Learned parameters: slope = 2.00, intercept = 3.02
 ```
 
 The model learns the parameters very accurately!
+
+## 🚀 CI/CD Pipeline
+
+This project includes a complete CI/CD pipeline with GitHub Actions that:
+
+- **Automatically tests** the code on every commit
+- **Validates model accuracy** (ensures parameters are learned correctly)
+- **Generates HTML reports** with training results and visualizations
+- **Deploys to GitHub Pages** for easy viewing in the browser
+- **Provides build status badges** showing project health
+
+### View Live Results
+- **GitHub Pages**: [https://mimitheone.github.io/PyTorch/](https://mimitheone.github.io/PyTorch/)
+- **Latest Build**: [GitHub Actions](https://github.com/mimitheone/PyTorch/actions)
+- **Build Artifacts**: Download HTML reports and charts from the Actions tab
+
+### What the CI/CD Does
+1. **Setup**: Installs Python 3.9 and dependencies
+2. **Testing**: Runs the model and validates accuracy
+3. **Reporting**: Generates HTML report with metrics and charts
+4. **Deployment**: Publishes results to GitHub Pages
+5. **Badges**: Updates status indicators in README
 
 ## Next Steps
 
