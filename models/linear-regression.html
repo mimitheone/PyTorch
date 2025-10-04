@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mimisheone - Portfolio</title>
+    <title>Linear Regression - PyTorch Project</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -117,6 +117,17 @@
             margin-top: 40px;
             opacity: 0.8;
         }
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+            color: white;
+        }
         @media (max-width: 768px) {
             .header h1 { font-size: 2em; }
             .status-badges { flex-direction: column; align-items: center; }
@@ -126,9 +137,11 @@
 </head>
 <body>
     <div class="container">
+        <a href="../index.html" class="back-link">← Back to Portfolio</a>
+        
         <div class="header">
-            <h1>🚀 PyTorch Projects</h1>
-            <p>Machine learning models and experiments with PyTorch</p>
+            <h1>📈 Linear Regression</h1>
+            <p>Learn the fundamentals of machine learning with PyTorch</p>
         </div>
 
         <div class="card">
@@ -142,42 +155,39 @@
         </div>
 
         <div class="card">
-            <h2>🤖 Available Models</h2>
-            <p>Explore different machine learning models implemented with PyTorch:</p>
+            <h2>🎯 About This Model</h2>
+            <p>This is a beginner-friendly PyTorch implementation of linear regression - one of the most fundamental machine learning algorithms. The model learns the relationship between input data (X) and output data (Y) in the format: <strong>Y = 2*X + 3 + noise</strong></p>
             
             <div class="features">
                 <div class="feature">
-                    <h3>📈 Linear Regression</h3>
-                    <p>Learn the fundamentals of machine learning with a simple linear regression model that predicts continuous values.</p>
-                    <a href="models/linear-regression.html" class="btn" style="margin-top: 10px; padding: 8px 16px; font-size: 0.9em;">View Model →</a>
+                    <h3>📚 Educational Content</h3>
+                    <p>Comprehensive explanations of linear regression with real-world examples from education, fitness, cars, weather, technology, and health.</p>
                 </div>
                 <div class="feature">
-                    <h3>🔮 Neural Networks</h3>
-                    <p>Coming soon: Deep learning models with multiple layers and activation functions.</p>
-                    <span class="btn" style="margin-top: 10px; padding: 8px 16px; font-size: 0.9em; background: #6c757d; cursor: not-allowed;">Coming Soon</span>
+                    <h3>🔧 Working Code</h3>
+                    <p>Complete PyTorch implementation with detailed comments in Bulgarian and English, perfect for learning the basics.</p>
                 </div>
                 <div class="feature">
-                    <h3>🖼️ Computer Vision</h3>
-                    <p>Coming soon: Image classification and object detection models using CNNs.</p>
-                    <span class="btn" style="margin-top: 10px; padding: 8px 16px; font-size: 0.9em; background: #6c757d; cursor: not-allowed;">Coming Soon</span>
+                    <h3>📊 Visualizations</h3>
+                    <p>Beautiful graphs showing data points, model predictions, and training progress to help you understand what's happening.</p>
                 </div>
                 <div class="feature">
-                    <h3>📝 Natural Language</h3>
-                    <p>Coming soon: Text processing and language models using transformers.</p>
-                    <span class="btn" style="margin-top: 10px; padding: 8px 16px; font-size: 0.9em; background: #6c757d; cursor: not-allowed;">Coming Soon</span>
+                    <h3>🚀 CI/CD Pipeline</h3>
+                    <p>Automated testing and deployment with GitHub Actions that runs on every commit and generates reports.</p>
                 </div>
             </div>
         </div>
 
         <div class="card">
-            <h2>🚀 CI/CD Pipeline</h2>
-            <p>This project includes a complete CI/CD pipeline with GitHub Actions that:</p>
+            <h2>📈 Model Performance</h2>
+            <p>The model successfully learns the relationship Y = 2*X + 3 with high accuracy:</p>
             <ul>
-                <li><strong>Automatically tests</strong> the code on every commit</li>
-                <li><strong>Validates model accuracy</strong> (ensures parameters are learned correctly)</li>
-                <li><strong>Generates HTML reports</strong> with training results and visualizations</li>
-                <li><strong>Deploys to GitHub Pages</strong> for easy viewing in the browser</li>
-                <li><strong>Provides build status badges</strong> showing project health</li>
+                <li><strong>True Parameters:</strong> slope = 2.00, intercept = 3.00</li>
+                <li><strong>Learned Parameters:</strong> slope ≈ 2.00, intercept ≈ 3.02</li>
+                <li><strong>Accuracy:</strong> >99% parameter recovery</li>
+                <li><strong>Training:</strong> 1000 epochs with decreasing loss</li>
+                <li><strong>Loss Function:</strong> Mean Squared Error (MSE)</li>
+                <li><strong>Optimizer:</strong> Stochastic Gradient Descent (SGD)</li>
             </ul>
         </div>
 
@@ -196,14 +206,13 @@ cd PyTorch
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the project
+# Run the linear regression model
 python simple_linear_regression.py</code></pre>
         </div>
 
         <div class="footer">
             <p>Made with ❤️ for learning PyTorch and machine learning</p>
             <p>Automatically deployed with GitHub Actions</p>
-            <p><a href="https://github.com/mimitheone" style="color: white;">@mimitheone</a> on GitHub</p>
         </div>
     </div>
 </body>
