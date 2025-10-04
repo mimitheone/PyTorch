@@ -222,6 +222,11 @@ jobs:
         print('✅ HTML report and loss curve generated')
         "
         
+    - name: Move artifacts to root
+      run: |
+        mv models/linear-regression/report.html ./
+        mv models/linear-regression/loss_curve.png ./
+        
     - name: Upload HTML Report
       uses: actions/upload-artifact@v4
       with:
