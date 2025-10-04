@@ -408,19 +408,19 @@ for epoch in range(1000):
                 metrics.innerHTML = `
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 20px 0;">
                         <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
-                            <h4 style="color: #667eea; margin-bottom: 10px; font-size: 1.1rem;">True Slope</h4>
+                            <h4 style="color: #667eea; margin-bottom: 10px; font-size: 1.1rem;">True Points per Hour</h4>
                             <div style="font-size: 2.5rem; font-weight: bold; color: #fff; text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);">2.00</div>
                         </div>
                         <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
-                            <h4 style="color: #667eea; margin-bottom: 10px; font-size: 1.1rem;">Learned Slope</h4>
+                            <h4 style="color: #667eea; margin-bottom: 10px; font-size: 1.1rem;">Learned Points per Hour</h4>
                             <div style="font-size: 2.5rem; font-weight: bold; color: #fff; text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);">${trainingData.learnedSlope.toFixed(3)}</div>
                         </div>
                         <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
-                            <h4 style="color: #667eea; margin-bottom: 10px; font-size: 1.1rem;">True Intercept</h4>
+                            <h4 style="color: #667eea; margin-bottom: 10px; font-size: 1.1rem;">True Base Score</h4>
                             <div style="font-size: 2.5rem; font-weight: bold; color: #fff; text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);">3.00</div>
                         </div>
                         <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
-                            <h4 style="color: #667eea; margin-bottom: 10px; font-size: 1.1rem;">Learned Intercept</h4>
+                            <h4 style="color: #667eea; margin-bottom: 10px; font-size: 1.1rem;">Learned Base Score</h4>
                             <div style="font-size: 2.5rem; font-weight: bold; color: #fff; text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);">${trainingData.learnedIntercept.toFixed(3)}</div>
                         </div>
                         <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
@@ -500,7 +500,7 @@ for epoch in range(1000):
                             x: {
                                 title: {
                                     display: true,
-                                    text: 'X',
+                                    text: 'Hours Studied',
                                     color: '#fff'
                                 },
                                 ticks: { color: '#fff' },
@@ -509,7 +509,7 @@ for epoch in range(1000):
                             y: {
                                 title: {
                                     display: true,
-                                    text: 'Y',
+                                    text: 'Test Score',
                                     color: '#fff'
                                 },
                                 ticks: { color: '#fff' },
@@ -591,19 +591,19 @@ for epoch in range(1000):
         }
         
         async function simulateModelTraining() {
-            // Simulate realistic training data
-            const trueSlope = 2.0;
-            const trueIntercept = 3.0;
+            // Simulate realistic training data for education example
+            const trueSlope = 2.0;  // Each hour adds 2 points
+            const trueIntercept = 3.0;  // Base score of 3 points
             
-            // Generate data points with noise
+            // Generate data points with noise (realistic test scores)
             const dataPoints = [];
             const predictionLine = [];
             const trueLine = [];
             
             for (let i = 0; i <= 10; i += 0.5) {
-                const noise = (Math.random() - 0.5) * 0.5;
+                const noise = (Math.random() - 0.5) * 2;  // More realistic noise for test scores
                 const trueY = trueSlope * i + trueIntercept + noise;
-                dataPoints.push({ x: i, y: trueY });
+                dataPoints.push({ x: i, y: Math.max(0, Math.min(25, trueY)) });  // Clamp between 0-25
                 
                 // True line
                 trueLine.push({ x: i, y: trueSlope * i + trueIntercept });
