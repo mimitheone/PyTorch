@@ -216,7 +216,7 @@ jobs:
         "
         
     - name: Upload HTML Report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: pytorch-report
         path: |
@@ -225,7 +225,7 @@ jobs:
           
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/master'
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./
