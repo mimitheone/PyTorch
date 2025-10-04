@@ -271,7 +271,7 @@ for epoch in range(1000):
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
     <script>
         async function runModel() {
             const btn = document.getElementById('runBtn');
@@ -281,6 +281,14 @@ for epoch in range(1000):
             
             btn.innerHTML = '⏳ Running Model...';
             btn.disabled = true;
+            
+            // Check if Chart.js is loaded
+            if (typeof Chart === 'undefined') {
+                console.error('Chart.js not loaded');
+                btn.innerHTML = '❌ Chart library not loaded';
+                btn.style.background = 'linear-gradient(135deg, #f44336 0%, #d32f2f 100%)';
+                return;
+            }
             
             try {
                 // Simulate model training with realistic data
@@ -325,17 +333,24 @@ for epoch in range(1000):
                         <div>
                             <h4 style="color: #667eea; margin-bottom: 15px;">📊 Data & Model Fit</h4>
                             <canvas id="dataChart" width="400" height="300"></canvas>
+                            <div id="dataChartError" style="display: none; color: #ff6b6b; margin-top: 10px;">
+                                Chart failed to load. Data points: ${trainingData.dataPoints.length} samples
+                            </div>
                         </div>
                         <div>
                             <h4 style="color: #667eea; margin-bottom: 15px;">📈 Training Loss</h4>
                             <canvas id="lossChart" width="400" height="300"></canvas>
+                            <div id="lossChartError" style="display: none; color: #ff6b6b; margin-top: 10px;">
+                                Chart failed to load. Final loss: ${trainingData.finalLoss.toFixed(4)}
+                            </div>
                         </div>
                     </div>
                 `;
                 
                 // Create data chart
-                const dataCtx = document.getElementById('dataChart').getContext('2d');
-                new Chart(dataCtx, {
+                try {
+                    const dataCtx = document.getElementById('dataChart').getContext('2d');
+                    new Chart(dataCtx, {
                     type: 'scatter',
                     data: {
                         datasets: [{
@@ -396,10 +411,15 @@ for epoch in range(1000):
                         }
                     }
                 });
+                } catch (error) {
+                    console.error('Data chart error:', error);
+                    document.getElementById('dataChartError').style.display = 'block';
+                }
                 
                 // Create loss chart
-                const lossCtx = document.getElementById('lossChart').getContext('2d');
-                new Chart(lossCtx, {
+                try {
+                    const lossCtx = document.getElementById('lossChart').getContext('2d');
+                    new Chart(lossCtx, {
                     type: 'line',
                     data: {
                         labels: trainingData.lossLabels,
@@ -444,6 +464,10 @@ for epoch in range(1000):
                         }
                     }
                 });
+                } catch (error) {
+                    console.error('Loss chart error:', error);
+                    document.getElementById('lossChartError').style.display = 'block';
+                }
                 
                 btn.innerHTML = '✅ Model Completed!';
                 btn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
