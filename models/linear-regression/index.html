@@ -206,7 +206,7 @@
             </div>
             <div id="results" style="display: none;">
                 <h3>📈 Training Results</h3>
-                <div id="metrics"></div>
+                <div id="metrics" style="margin: 20px 0;"></div>
                 <div id="charts"></div>
             </div>
         </div>
@@ -296,6 +296,9 @@ for epoch in range(1000):
                 
                 // Show results
                 results.style.display = 'block';
+                
+                // Debug: Log training data
+                console.log('Training data:', trainingData);
                 
                 // Display metrics
                 metrics.innerHTML = `
@@ -471,6 +474,10 @@ for epoch in range(1000):
                 
                 btn.innerHTML = '✅ Model Completed!';
                 btn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+                
+                // Debug: Check if metrics were added
+                console.log('Metrics element:', document.getElementById('metrics'));
+                console.log('Metrics innerHTML length:', document.getElementById('metrics').innerHTML.length);
                 
             } catch (error) {
                 console.error('Error running model:', error);
